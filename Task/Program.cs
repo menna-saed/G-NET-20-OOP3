@@ -47,12 +47,9 @@ class Program
         ticket.PrintTicket();
         Console.WriteLine("Total (14% tax): " + ticket.CalcTotal(tax));
         
-        Console.WriteLine(Ticket.GetTotalTicketsSold());*/
-        
-      Cinema cinema = new Cinema();
-     
-
-        for (int i = 0; i< 3; i++)
+        Console.WriteLine(Ticket.GetTotalTicketsSold()); 
+           /*Cinema cinema = new Cinema();* /*/
+        /*   for (int i = 0; i< 3; i++)
         {
             Console.WriteLine("\n--- enter data for 3 tickets---");
             Console.WriteLine("Enter movie name:");
@@ -101,7 +98,40 @@ class Program
        Console.WriteLine("Booking Reference 2: "+ BookingHelper.GenerateBookingReference() );
        
        double groupTotal = BookingHelper.CalcGroupDiscount(5, 80);
-       Console.WriteLine("Total for 5 tickets with group discount: " + groupTotal);
+       Console.WriteLine("Total for 5 tickets with group discount: " + groupTotal);*/
+
+        
+        
+      
+  
+        Cinema myCinema = new Cinema("IMAX", "Sony 4K");
+        
+
+        Console.WriteLine("============cinema opened============ \n" );
+        myCinema.projector.Start();
+         Console.WriteLine("============All Tickets ============ \n" );
+         
+         
+         Ticket standardTicket = new StandardTicket("Inception", 150, "A5");
+         Ticket vipTicket = new VIPTicket("Interstellar", 250, true , 15.1m);
+         Ticket imaxTicket = new IMAXTicket("Avatar", 300, true);
+
+         
+         
+         myCinema.AddTicket(standardTicket); 
+         myCinema.AddTicket(vipTicket); 
+         myCinema.AddTicket(imaxTicket); 
+
+         myCinema.printInfo();
+         Console.WriteLine("============Statictics ============ \n" );
+         Console.WriteLine("Booking Reference 1: "+ BookingHelper.GenerateBookingReference() );
+         Console.WriteLine("Booking Reference 2: "+ BookingHelper.GenerateBookingReference() );
+         Console.WriteLine("Discound group : " + BookingHelper.CalcGroupDiscount(5,80));
+         
+
+
+
+    
     }      
     
 }
