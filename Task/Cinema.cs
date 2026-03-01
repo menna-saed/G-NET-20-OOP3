@@ -2,8 +2,9 @@
 
 public class Cinema
 {
+   
 
-     private Ticket[] Ticket = new Ticket[20];
+    /*  private Ticket[] Ticket = new Ticket[20];
 
      public Ticket? this[int index]
      {
@@ -49,6 +50,45 @@ public class Cinema
          }
 
          return false;
-     }
+     }*/
 
+   public string  cinemaName  { get; set; }
+   public Projector projector { get; set; }
+
+   private Ticket[] _tickets = new Ticket[20];
+   private int counter = 0;
+
+   public Cinema(string cinemaName  ,string name)
+   {
+       this.cinemaName = cinemaName;
+       projector = new Projector(name); 
+   }
+
+   public void AddTicket(Ticket ticket)
+   {
+       if (counter < 20 )
+       {
+           _tickets[counter] = ticket;
+           counter++;
+          
+       }
+       else
+       {
+           Console.WriteLine("Cinema is full. Cannot add more tickets.");
+
+       }
+   }
+
+   public void printInfo()
+   {
+       Console.WriteLine("Cinema Name: " + cinemaName);
+
+       foreach (var item in _tickets)
+       {
+           
+           if (item != null)
+                  Console.WriteLine(item  );
+       }
+   }
+   
 }

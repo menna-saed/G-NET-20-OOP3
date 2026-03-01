@@ -1,9 +1,12 @@
-﻿namespace AssignmentOOP1;
+﻿using System.Diagnostics.Metrics;
 
-public class Ticket
+namespace AssignmentOOP1;
+
+public class Ticket 
 {
-  
+ 
 
+    /*
     public string MovieName { get; set; }
     public TicketType Type { get; set; }
     public Seat Seat { get; set; }
@@ -88,6 +91,45 @@ public class Ticket
     {
         return ticketCounter;
     }
-    
-   
+    */
+
+    public string  movieName { get; set; }
+    public Decimal  Price  { get; private set; }
+   public readonly int  TicketID ;
+   private static int counter = 0;
+
+
+    public Decimal CheckPrice
+    {
+        get
+        {
+            return Price;
+        }
+        set
+        {
+            if (value > 0)
+            {
+                Price = value;
+
+            }
+        }
+        
+    }
+    public Ticket(string movieName, decimal price)
+    {
+        this.movieName = movieName;
+        Price = price;
+
+        counter++;
+        TicketID = counter; 
+    }
+
+    public decimal PriceAfterTax() => Price * 14 / 100;
+
+    public override string ToString()
+    {
+        return $"movieName : {movieName} , price :{Price} ,  ticketID :{TicketID}";
+    }
+
+    public static int GetTotalTickets() => counter;
 }
