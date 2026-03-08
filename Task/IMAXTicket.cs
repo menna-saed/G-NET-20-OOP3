@@ -19,5 +19,11 @@ public class IMAXTicket : Ticket
         return base.ToString() +
                $", Type: IMAX, 3D: {Is3D}";
     }
+
+    public override void PrintTicket()
+    {
+        base.PrintTicket();
+        Console.WriteLine($" , is3D: {Is3D}");
+    }
 }
 

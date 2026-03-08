@@ -15,4 +15,10 @@ public class StandardTicket : Ticket
     {
         return base.ToString() + " "  +$"seatNumber: {SeatNumber}";
     }
+
+    public override void PrintTicket()
+    {
+      base.PrintTicket();
+      Console.WriteLine( $" ,seatNumber: {SeatNumber}");
+    }
 }

@@ -79,16 +79,21 @@ public class Cinema
        }
    }
 
-   public void printInfo()
+   public void PrintAllTickets()
    {
-       Console.WriteLine("Cinema Name: " + cinemaName);
-
-       foreach (var item in _tickets)
+       foreach (var  ticket in _tickets)
        {
-           
-           if (item != null)
-                  Console.WriteLine(item  );
+           if (ticket != null)
+           {
+               ticket.PrintTicket();
+           }
        }
+   }
+
+   public static void ProcessTicket(Ticket ticket)
+   {
+       
+       ticket.PrintTicket();
    }
    
 }

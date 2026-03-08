@@ -105,13 +105,15 @@ class Program
       
   
         Cinema myCinema = new Cinema("IMAX", "Sony 4K");
-        
+        Ticket ticket = new Ticket("dd", 150);
 
-        Console.WriteLine("============cinema opened============ \n" );
+        Console.Write("============cinema opened============ \n" );
         myCinema.projector.Start();
-         Console.WriteLine("============All Tickets ============ \n" );
-         
-         
+        Console.Write("============ Set Price Test ============ \n" );
+        ticket.SetPrice(150);
+        ticket.SetPrice(150, 1.5m);
+        
+         Console.Write("============All Tickets ============ \n" );
          Ticket standardTicket = new StandardTicket("Inception", 150, "A5");
          Ticket vipTicket = new VIPTicket("Interstellar", 250, true , 15.1m);
          Ticket imaxTicket = new IMAXTicket("Avatar", 300, true);
@@ -122,14 +124,14 @@ class Program
          myCinema.AddTicket(vipTicket); 
          myCinema.AddTicket(imaxTicket); 
 
-         myCinema.printInfo();
-         Console.WriteLine("============Statictics ============ \n" );
-         Console.WriteLine("Booking Reference 1: "+ BookingHelper.GenerateBookingReference() );
-         Console.WriteLine("Booking Reference 2: "+ BookingHelper.GenerateBookingReference() );
-         Console.WriteLine("Discound group : " + BookingHelper.CalcGroupDiscount(5,80));
-         
-
-
+        
+     myCinema.PrintAllTickets();
+     Console.Write("============Process single Ticket ============ \n" );
+     Cinema.ProcessTicket(vipTicket);
+     
+     
+     Console.Write("============Cinema closed ============ \n" );
+     myCinema.projector.Close();
 
     
     }      

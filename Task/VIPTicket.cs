@@ -17,4 +17,10 @@ public class VIPTicket : Ticket
     {
         return base.ToString() + $" Lounge Access: {LoungeAccess}, Service Fee: {ServiceFee}"; 
     }
+
+    public override void PrintTicket()
+    {
+        base.PrintTicket();
+        Console.WriteLine($" , loungeAccess: {LoungeAccess}, serviceFee: {ServiceFee}");
+    }
 }

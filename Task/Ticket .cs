@@ -93,9 +93,9 @@ public class Ticket
     }
     */
 
-    public string  movieName { get; set; }
+    public string  movieName { get; set; } 
     public Decimal  Price  { get; private set; }
-   public readonly int  TicketID ;
+   public readonly int  TicketID  ;
    private static int counter = 0;
 
 
@@ -132,4 +132,25 @@ public class Ticket
     }
 
     public static int GetTotalTickets() => counter;
+
+
+    public virtual void PrintTicket()
+    {
+        Console.Write($"TicketId: {TicketID} , Movie: {movieName} , Price: {Price}  ,Price After Tax:  {PriceAfterTax()}");
+      
+    }
+
+    public void SetPrice(decimal price)
+    {
+        Price = price;
+
+        Console.WriteLine("Set Price dircetly ="+ Price);
+    }
+    public void SetPrice(decimal price , decimal multiplier)
+    {
+        Price = price * multiplier ;
+        Console.WriteLine("set price with multiplier =" +Price);
+    }
+
+
 }
